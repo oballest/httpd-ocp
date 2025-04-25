@@ -10,9 +10,12 @@ RUN dnf install -y httpd && \
  RUN  sed -i "s/Listen 80/Listen 8080/g" /etc/httpd/conf/httpd.conf
 
 COPY src/ /var/www/html/
+ONBUILD COPY src /var/www/html/
 
 EXPOSE 8080
 
 USER 1001
+
+ONBUILD USER root
 
 ENTRYPOINT ["httpd", "-D", "FOREGROUND"]
