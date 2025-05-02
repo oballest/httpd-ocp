@@ -10,7 +10,7 @@ RUN dnf install -y httpd && \
 RUN  sed -i "s/Listen 80/Listen 8080/g" /etc/httpd/conf/httpd.conf
 
 ARG DIRECTORY
-ENV DIRECTORY=${DIRECTORY:./}
+ENV DIRECTORY=${DIRECTORY:"./"}
 
 COPY $DIRECTORY /var/www/html/
 ONBUILD COPY src /var/www/html/
