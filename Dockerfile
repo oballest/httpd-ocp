@@ -16,7 +16,7 @@ ARG DIRECTORY = "./"
 COPY $DIRECTORY /var/www/html/
 ONBUILD COPY src /var/www/html/
 
-EXPOSE 8080
+EXPOSE 8081
 
 USER 1001
 
